@@ -30,11 +30,18 @@ todolistusecontext/
 ├── src/
 │   ├── components/
 │   │   ├── TodoItem.jsx
+│   │   ├── ThemeSwitcher.jsx
 │   │   ├── TodoList.jsx
 │   │   └── AddTodo.jsx
+│   ├── context/
+│   │   ├── ThemeContext.jsx
+│   │   ├── ThemeProvider.jsx
+│   │   ├── TodoContext.jsx
+│   │   └── TodoProvider.jsx
 │   ├── styles/
 │   │   ├── index.css
 │   │   ├── App.css
+│   │   ├── ThemeSwitcher.css
 │   │   ├── TodoList.css
 │   │   ├── TodoItem.css
 │   │   └── AddTodo.css

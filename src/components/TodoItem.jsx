@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { TodoContext } from '../context/TodoContext'
 import '../styles/TodoItem.css'
 
@@ -16,11 +16,16 @@ function TodoItem({ id }) {
         className="todo-checkbox"
         checked={todo.done}
         onChange={() => toggleTodo(id)}
+        aria-label={`Mark "${todo.text}" as ${todo.done ? 'incomplete' : 'complete'}`}
       />
       <span className={`todo-text ${todo.done ? 'todo-text-completed' : ''}`}>
         {todo.text}
       </span>
-      <button className="todo-delete" onClick={() => removeTodo(id)}>
+      <button 
+        className="todo-delete" 
+        onClick={() => removeTodo(id)}
+        aria-label={`Delete "${todo.text}"`}
+      >
         X
       </button>
     </li>

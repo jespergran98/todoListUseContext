@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { ThemeContext } from './context/ThemeContext'
 import TodoList from './components/TodoList'
-import ThemeSwitcher from './components/ThemeSwitcher'
 import './styles/App.css'
 
 function App() {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { TodoContext } from '../context/TodoContext'
 import TodoItem from './todoItem'
 import AddTodo from './AddTodo'
@@ -6,9 +6,10 @@ import ThemeSwitcher from './ThemeSwitcher'
 import '../styles/TodoList.css'
 
 function TodoList() {
-  const { todos } = useContext(TodoContext)
+  const { todos, clearCompleted } = useContext(TodoContext)
   
   const activeTodos = todos.filter(todo => !todo.done).length
+  const completedTodos = todos.filter(todo => todo.done).length
 
   return (
     <div className="todo-list-container">
@@ -27,7 +28,11 @@ function TodoList() {
       
       <footer className="todo-footer">
         <span className="todo-count">{activeTodos} items left</span>
-        <button className="todo-clear">Clear completed</button>
+        {completedTodos > 0 && (
+          <button className="todo-clear" onClick={clearCompleted}>
+            Clear completed
+          </button>
+        )}
       </footer>
     </div>
   )

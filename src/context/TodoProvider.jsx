@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { TodoContext } from './TodoContext'
 
 export function TodoProvider({ children }) {
@@ -29,8 +29,12 @@ export function TodoProvider({ children }) {
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id))
   }
 
+  const clearCompleted = () => {
+    setTodos(prevTodos => prevTodos.filter(todo => !todo.done))
+  }
+
   return (
-    <TodoContext.Provider value={{ todos, addTodo, toggleTodo, removeTodo }}>
+    <TodoContext.Provider value={{ todos, addTodo, toggleTodo, removeTodo, clearCompleted }}>
       {children}
     </TodoContext.Provider>
   )
