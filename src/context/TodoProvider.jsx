@@ -3,9 +3,11 @@ import { TodoContext } from './TodoContext'
 
 export function TodoProvider({ children }) {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Complete project documentation', done: false },
-    { id: 2, text: 'Review pull requests', done: true },
-    { id: 3, text: 'Update dependencies', done: false }
+    { id: 1, text: 'Create base in swamp', done: true },
+    { id: 2, text: 'Expand the base with a storage room', done: false },
+    { id: 3, text: 'Breed animals for a sustainable food source', done: false },
+    { id: 4, text: 'defeat ender dragon', done: true },
+    { id: 5, text: 'create witch spawner', done: false }
   ])
 
   const addTodo = (text) => {
