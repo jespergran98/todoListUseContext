@@ -42,6 +42,56 @@
   letter-spacing: 1px;
 }
 
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edit-title-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.edit-title-btn:hover {
+  opacity: 1;
+  background-color: rgba(139, 115, 85, 0.1);
+  transform: translateY(-1px);
+}
+
+.edit-title-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.title-input {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary-text);
+  font-family: 'Kalam', cursive;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
+  background-color: var(--secondary-bg);
+  flex: 1;
+  transition: all 0.2s ease;
+}
+
+.title-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+}
+
 .todo-list {
   list-style: none;
   max-height: 400px;
