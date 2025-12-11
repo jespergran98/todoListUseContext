@@ -1,32 +1,32 @@
-import React from 'react'
-import TodoItem from './TodoItem'
+import React, { useContext } from 'react'
+import { TodoContext } from '../context/TodoContext'
+import TodoItem from './todoItem'
 import AddTodo from './AddTodo'
+import ThemeSwitcher from './ThemeSwitcher'
 import '../styles/TodoList.css'
 
 function TodoList() {
-  const mockTodos = [
-    { id: 1, text: 'Complete project documentation', completed: false },
-    { id: 2, text: 'Review pull requests', completed: true },
-    { id: 3, text: 'Update dependencies', completed: false }
-  ]
+  const { todos } = useContext(TodoContext)
+  
+  const activeTodos = todos.filter(todo => !todo.done).length
 
   return (
     <div className="todo-list-container">
       <header className="todo-header">
         <h1>My Todo List</h1>
-        <button className="theme-toggle">Toggle Theme</button>
+        <ThemeSwitcher />
       </header>
       
       <AddTodo />
       
       <ul className="todo-list">
-        {mockTodos.map(todo => (
-          <TodoItem key={todo.id} todo={todo} />
+        {todos.map(todo => (
+          <TodoItem key={todo.id} id={todo.id} />
         ))}
       </ul>
       
       <footer className="todo-footer">
-        <span className="todo-count">3 items left</span>
+        <span className="todo-count">{activeTodos} items left</span>
         <button className="todo-clear">Clear completed</button>
       </footer>
     </div>

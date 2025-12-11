@@ -26,6 +26,13 @@
   flex: 1;
   font-size: 16px;
   color: var(--primary-text);
+  transition: all 0.3s ease;
+}
+
+.todo-text-completed {
+  text-decoration: line-through;
+  color: var(--secondary-text);
+  opacity: 0.6;
 }
 
 .todo-delete {

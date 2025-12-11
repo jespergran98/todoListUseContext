@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { TodoContext } from '../context/TodoContext'
 import '../styles/AddTodo.css'
 
 function AddTodo() {
+  const { addTodo } = useContext(TodoContext)
+  const [inputValue, setInputValue] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (inputValue.trim()) {
+      addTodo(inputValue.trim())
+      setInputValue('')
+    }
+  }
+
   return (
-    <div className="add-todo">
+    <form className="add-todo" onSubmit={handleSubmit}>
       <input 
         type="text" 
         className="todo-input" 
         placeholder="Add a new todo..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      <button className="todo-add-button">Add</button>
-    </div>
+      <button type="submit" className="todo-add-button">
+        Legg til
+      </button>
+    </form>
   )
 }
 
