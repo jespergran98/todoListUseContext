@@ -3,25 +3,33 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-left: 16px;
 }
 
 .theme-text {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--secondary-text);
+  font-weight: 400;
+  font-family: 'Kalam', cursive;
+  letter-spacing: 0.5px;
 }
 
 .theme-toggle {
-  padding: 8px 16px;
+  padding: 10px 20px;
   background-color: var(--accent-color);
-  color: white;
+  color: var(--primary-bg);
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Kalam', cursive;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
 }
 
 .theme-toggle:hover {
   background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
