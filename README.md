@@ -22,3 +22,29 @@ Project featuring a simple todo list with useContext, a provider giving global a
 TodoApp is built from components using a shared state, ThemeSwitcher swaps between a light and dark mode.
 
 ---
+
+```
+todolistusecontext/
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── TodoItem.jsx
+│   │   ├── TodoList.jsx
+│   │   └── AddTodo.jsx
+│   ├── styles/
+│   │   ├── index.css
+│   │   ├── App.css
+│   │   ├── TodoList.css
+│   │   ├── TodoItem.css
+│   │   └── AddTodo.css
+│   ├── App.jsx
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
+```

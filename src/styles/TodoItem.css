@@ -1,0 +1,45 @@
+.todo-item {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.todo-item:hover {
+  background-color: var(--secondary-bg);
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--success-color);
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+  color: var(--primary-text);
+}
+
+.todo-delete {
+  padding: 6px 12px;
+  background-color: transparent;
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.todo-delete:hover {
+  background-color: var(--danger-color);
+  color: white;
+}
