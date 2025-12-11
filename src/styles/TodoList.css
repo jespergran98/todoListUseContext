@@ -29,8 +29,7 @@
   gap: 16px;
   position: relative;
   z-index: 1;
-  background: var(--paper-texture);
-  background-size: 100% 24px;
+  background: var(--primary-bg);
 }
 
 .todo-header h1 {

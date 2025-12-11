@@ -24,7 +24,7 @@ function AddTodo() {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <button type="submit" className="todo-add-button">
-        Legg til
+        Add
       </button>
     </form>
   )

@@ -7,9 +7,9 @@ function ThemeSwitcher() {
 
   return (
     <div className="theme-switcher">
-      <span className="theme-text">Gjeldende tema: {theme}</span>
+      <span className="theme-text">Excisting Theme: {theme}</span>
       <button className="theme-toggle" onClick={toggleTheme}>
-        Bytt tema
+        Change Theme
       </button>
     </div>
   )
