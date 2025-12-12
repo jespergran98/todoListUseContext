@@ -115,6 +115,14 @@
   border-radius: 4px;
 }
 
+.todo-empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--secondary-text);
+  font-size: 18px;
+  font-style: italic;
+}
+
 .todo-footer {
   padding: 16px 24px;
   border-top: 2px solid var(--border-color);

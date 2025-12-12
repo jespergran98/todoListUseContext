@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useMemo } from 'react'
 import { TodoContext } from '../context/TodoContext'
-import TodoItem from './todoItem'
+import TodoItem from './TodoItem'
 import AddTodo from './AddTodo'
 import ThemeSwitcher from './ThemeSwitcher'
 import '../styles/TodoList.css'
@@ -11,8 +11,10 @@ function TodoList() {
   const [isEditingTitle, setIsEditingTitle] = useState(false)
   const [tempTitle, setTempTitle] = useState(title)
   
-  const activeTodos = todos.filter(todo => !todo.done).length
-  const completedTodos = todos.filter(todo => todo.done).length
+  const { activeTodos, completedTodos } = useMemo(() => ({
+    activeTodos: todos.filter(todo => !todo.done).length,
+    completedTodos: todos.filter(todo => todo.done).length
+  }), [todos])
 
   const handleTitleEdit = () => {
     setTempTitle(title)
@@ -51,6 +53,7 @@ function TodoList() {
               onKeyDown={handleTitleKeyDown}
               autoFocus
               maxLength={50}
+              aria-label="Edit list title"
             />
           ) : (
             <>
@@ -58,7 +61,7 @@ function TodoList() {
               <button 
                 className="edit-title-btn" 
                 onClick={handleTitleEdit}
-                aria-label="Edit title"
+                aria-label="Edit list title"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
@@ -72,16 +75,26 @@ function TodoList() {
       
       <AddTodo />
       
-      <ul className="todo-list">
-        {todos.map(todo => (
-          <TodoItem key={todo.id} id={todo.id} />
-        ))}
+      <ul className="todo-list" role="list">
+        {todos.length === 0 ? (
+          <li className="todo-empty" role="status">No todos yet. Add one above!</li>
+        ) : (
+          todos.map(todo => (
+            <TodoItem key={todo.id} id={todo.id} />
+          ))
+        )}
       </ul>
       
       <footer className="todo-footer">
-        <span className="todo-count">{activeTodos} items left</span>
+        <span className="todo-count" role="status" aria-live="polite">
+          {activeTodos} {activeTodos === 1 ? 'item' : 'items'} left
+        </span>
         {completedTodos > 0 && (
-          <button className="todo-clear" onClick={clearCompleted}>
+          <button 
+            className="todo-clear" 
+            onClick={clearCompleted}
+            aria-label={`Clear ${completedTodos} completed ${completedTodos === 1 ? 'item' : 'items'}`}
+          >
             Clear completed
           </button>
         )}

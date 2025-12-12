@@ -7,8 +7,12 @@ function ThemeSwitcher() {
 
   return (
     <div className="theme-switcher">
-      <span className="theme-text">Excisting Theme: {theme}</span>
-      <button className="theme-toggle" onClick={toggleTheme}>
+      <span className="theme-text">Existing Theme: {theme}</span>
+      <button 
+        className="theme-toggle" 
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+      >
         Change Theme
       </button>
     </div>

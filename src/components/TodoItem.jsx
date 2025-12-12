@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { TodoContext } from '../context/TodoContext'
 import '../styles/TodoItem.css'
 
@@ -30,6 +31,10 @@ function TodoItem({ id }) {
       </button>
     </li>
   )
+}
+
+TodoItem.propTypes = {
+  id: PropTypes.number.isRequired
 }
 
 export default TodoItem
